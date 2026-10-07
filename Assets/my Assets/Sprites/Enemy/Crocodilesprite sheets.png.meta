@@ -1,0 +1,782 @@
+fileFormatVersion: 2
+guid: 7b7c60e800f1ac5498d19b241c9a13c6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1235168355927827969
+    second: Crocodilesprite sheets_0
+  - first:
+      213: -5221137294765268971
+    second: Crocodilesprite sheets_1
+  - first:
+      213: 6944802117603563229
+    second: Crocodilesprite sheets_2
+  - first:
+      213: -9006991977774692844
+    second: Crocodilesprite sheets_3
+  - first:
+      213: -6657239748273215812
+    second: Crocodilesprite sheets_4
+  - first:
+      213: -3798772622100689208
+    second: Crocodilesprite sheets_5
+  - first:
+      213: 8924604843540389728
+    second: Crocodilesprite sheets_6
+  - first:
+      213: -1276068827061139340
+    second: Crocodilesprite sheets_7
+  - first:
+      213: -34048956881329896
+    second: Crocodilesprite sheets_8
+  - first:
+      213: 3593931264535204685
+    second: Crocodilesprite sheets_9
+  - first:
+      213: 1415309805950925740
+    second: Crocodilesprite sheets_10
+  - first:
+      213: 7198715768066878756
+    second: Crocodilesprite sheets_11
+  - first:
+      213: -3426924011261790761
+    second: Crocodilesprite sheets_12
+  - first:
+      213: -5932369079597527250
+    second: Crocodilesprite sheets_13
+  - first:
+      213: 2165823064093504174
+    second: Crocodilesprite sheets_14
+  - first:
+      213: 1797753720611327604
+    second: Crocodilesprite sheets_15
+  - first:
+      213: 8381869130329446930
+    second: Crocodilesprite sheets_16
+  - first:
+      213: -8747510371209766390
+    second: Crocodilesprite sheets_17
+  - first:
+      213: -5466104228980958530
+    second: Crocodilesprite sheets_18
+  - first:
+      213: -4250205416359544932
+    second: Crocodilesprite sheets_19
+  - first:
+      213: -8036351641560659645
+    second: Crocodilesprite sheets_20
+  - first:
+      213: 4406108813186641640
+    second: Crocodilesprite sheets_21
+  - first:
+      213: 1365629815915567011
+    second: Crocodilesprite sheets_22
+  - first:
+      213: -3376375528138587130
+    second: Crocodilesprite sheets_23
+  - first:
+      213: 406439243928581185
+    second: Crocodilesprite sheets_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 0
+        width: 41
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 106a1e45313342110800000000000000
+      internalID: 1235168355927827969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_1
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 0
+        width: 41
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 510e8fd0b4bca87b0800000000000000
+      internalID: -5221137294765268971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_2
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 0
+        width: 41
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd614271bb4e06060800000000000000
+      internalID: 6944802117603563229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_3
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 0
+        width: 42
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41642fd648cb00380800000000000000
+      internalID: -9006991977774692844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_4
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 0
+        width: 42
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb6609378bbbc93a0800000000000000
+      internalID: -6657239748273215812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_5
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 0
+        width: 45
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ce853d4d6c084bc0800000000000000
+      internalID: -3798772622100689208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_6
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 0
+        width: 45
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06f94f312d09adb70800000000000000
+      internalID: 8924604843540389728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_7
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 0
+        width: 41
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4784216a92e7a4ee0800000000000000
+      internalID: -1276068827061139340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_8
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 0
+        width: 41
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 811ad1477a8078ff0800000000000000
+      internalID: -34048956881329896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_9
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 0
+        width: 41
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d439ac1917530e130800000000000000
+      internalID: 3593931264535204685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_10
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 0
+        width: 41
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cabf4d615c034a310800000000000000
+      internalID: 1415309805950925740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_11
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 0
+        width: 41
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42d21a2c9d9f6e360800000000000000
+      internalID: 7198715768066878756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_12
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 0
+        width: 41
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d5fb74b4ce1170d0800000000000000
+      internalID: -3426924011261790761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_13
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 0
+        width: 41
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2f041ec0cdfbada0800000000000000
+      internalID: -5932369079597527250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_14
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 0
+        width: 41
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea234ad0a9c8e0e10800000000000000
+      internalID: 2165823064093504174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_15
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 0
+        width: 41
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47ecca6eb77e2f810800000000000000
+      internalID: 1797753720611327604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_16
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 0
+        width: 41
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21a5913a091625470800000000000000
+      internalID: 8381869130329446930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_17
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 0
+        width: 41
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0a1ff6e9a99a9680800000000000000
+      internalID: -8747510371209766390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_18
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 0
+        width: 41
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eba54561a2f7424b0800000000000000
+      internalID: -5466104228980958530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_19
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 0
+        width: 41
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c97b27f31bc3405c0800000000000000
+      internalID: -4250205416359544932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_20
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 0
+        width: 41
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34946aaa2c4297090800000000000000
+      internalID: -8036351641560659645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_21
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 0
+        width: 41
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ee25bbfe94a52d30800000000000000
+      internalID: 4406108813186641640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_22
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 0
+        width: 41
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a754580511b3f210800000000000000
+      internalID: 1365629815915567011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_23
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 0
+        width: 41
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6044af09854b421d0800000000000000
+      internalID: -3376375528138587130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crocodilesprite sheets_24
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 0
+        width: 41
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1443425c656f3a500800000000000000
+      internalID: 406439243928581185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Crocodilesprite sheets_0: 1235168355927827969
+      Crocodilesprite sheets_1: -5221137294765268971
+      Crocodilesprite sheets_10: 1415309805950925740
+      Crocodilesprite sheets_11: 7198715768066878756
+      Crocodilesprite sheets_12: -3426924011261790761
+      Crocodilesprite sheets_13: -5932369079597527250
+      Crocodilesprite sheets_14: 2165823064093504174
+      Crocodilesprite sheets_15: 1797753720611327604
+      Crocodilesprite sheets_16: 8381869130329446930
+      Crocodilesprite sheets_17: -8747510371209766390
+      Crocodilesprite sheets_18: -5466104228980958530
+      Crocodilesprite sheets_19: -4250205416359544932
+      Crocodilesprite sheets_2: 6944802117603563229
+      Crocodilesprite sheets_20: -8036351641560659645
+      Crocodilesprite sheets_21: 4406108813186641640
+      Crocodilesprite sheets_22: 1365629815915567011
+      Crocodilesprite sheets_23: -3376375528138587130
+      Crocodilesprite sheets_24: 406439243928581185
+      Crocodilesprite sheets_3: -9006991977774692844
+      Crocodilesprite sheets_4: -6657239748273215812
+      Crocodilesprite sheets_5: -3798772622100689208
+      Crocodilesprite sheets_6: 8924604843540389728
+      Crocodilesprite sheets_7: -1276068827061139340
+      Crocodilesprite sheets_8: -34048956881329896
+      Crocodilesprite sheets_9: 3593931264535204685
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

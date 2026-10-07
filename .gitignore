@@ -71,3 +71,6 @@ crashlytics-build.properties
 *.swp
 *.DS_Store
 Thumbs.db
+
+# Local scene backups kept on disk as a safety net
+/_SceneBackups/
