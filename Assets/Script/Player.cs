@@ -22,8 +22,11 @@ public class Player : MonoBehaviour
     private AudioSource audioSource;
 
     private bool isGrounded;
+    private bool isJumping;
     private bool isKnockedBack;
+    private bool hasBeenGrounded;
     private float lastGroundedTime;
+    private Vector2 groundVelocity;
 
     private float facingDirection = 1f;
 
@@ -80,6 +83,7 @@ public class Player : MonoBehaviour
                     jumpForce
                 );
 
+                isJumping = true;
                 isGrounded = false;
                 PlaySFX(jumpclip);
             }
@@ -90,6 +94,7 @@ public class Player : MonoBehaviour
                     jumpForce
                 );
 
+                isJumping = true;
                 extraJumps--;
                 PlaySFX(jumpclip);
             }
@@ -110,22 +115,49 @@ public class Player : MonoBehaviour
                 playerCollider.bounds.min.y + groundCheckRadius * 0.5f;
         }
 
-        isGrounded =
-            rb.linearVelocity.y <= 0.01f &&
-            Physics2D.OverlapCircle(
-                groundCheckPosition,
-                groundCheckRadius,
-                groundLayer
-            );
+        Collider2D groundHit = Physics2D.OverlapCircle(
+            groundCheckPosition,
+            groundCheckRadius,
+            groundLayer
+        );
+
+        isGrounded = false;
+        groundVelocity = Vector2.zero;
+        if (groundHit != null && groundHit != playerCollider)
+        {
+            MovingPlatform movingPlatform =
+                groundHit.GetComponentInParent<MovingPlatform>();
+            if (movingPlatform != null)
+            {
+                groundVelocity = movingPlatform.Velocity;
+            }
+            else
+            {
+                Rigidbody2D groundRigidbody = groundHit.attachedRigidbody;
+                groundVelocity = groundRigidbody != null
+                    ? groundRigidbody.GetPointVelocity(
+                        groundHit.ClosestPoint(groundCheckPosition)
+                    )
+                    : Vector2.zero;
+            }
+
+            float relativeVerticalVelocity =
+                rb.linearVelocity.y - groundVelocity.y;
+            isGrounded =
+                relativeVerticalVelocity <= 0.01f ||
+                (movingPlatform != null && !isJumping);
+        }
 
         if (isGrounded)
         {
             lastGroundedTime = Time.time;
+            hasBeenGrounded = true;
+            isJumping = false;
         }
 
         if (isKnockedBack &&
             isGrounded &&
-            rb.linearVelocity.y <= 0f)
+            rb.linearVelocity.y - groundVelocity.y <= 0f)
         {
             isKnockedBack = false;
         }
@@ -134,15 +166,18 @@ public class Player : MonoBehaviour
     private void SetAnimation(float moveInput)
     {
         string nextAnimation;
+        float relativeVerticalVelocity =
+            rb.linearVelocity.y - groundVelocity.y;
         bool groundedForAnimation =
             isGrounded ||
-            (Time.time - lastGroundedTime <= GroundedAnimationGracePeriod &&
-             rb.linearVelocity.y >= -0.1f &&
-             rb.linearVelocity.y <= 0.05f);
+            (hasBeenGrounded &&
+             Time.time - lastGroundedTime <= GroundedAnimationGracePeriod &&
+             relativeVerticalVelocity >= -0.1f &&
+             relativeVerticalVelocity <= 0.05f);
 
         if (!groundedForAnimation)
         {
-            if (rb.linearVelocity.y > 0.05f)
+            if (relativeVerticalVelocity > 0.05f)
             {
                 nextAnimation = "Player_Jump";
             }
@@ -173,6 +208,7 @@ public class Player : MonoBehaviour
         float upwardSpeed)
     {
         isKnockedBack = true;
+        isJumping = true;
 
         rb.linearVelocity = new Vector2(
             -facingDirection * horizontalForce,
