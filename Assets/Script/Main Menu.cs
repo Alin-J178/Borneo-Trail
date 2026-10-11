@@ -3,9 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void startGame()
+    public GameObject mainMenuUI;
+    public GameObject levelSelectUI;
+    public void startGame(string sceneName)
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void levelSelect()
+    {
+        mainMenuUI.SetActive(false);
+        levelSelectUI.SetActive(true);
     }
 
     public void quitGame()

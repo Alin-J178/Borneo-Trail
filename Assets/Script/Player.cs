@@ -3,6 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class Player : MonoBehaviour
 {
+    private const float GroundedAnimationGracePeriod = 0.12f;
+
     public int coin;
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
@@ -15,11 +17,13 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rb;
     private Collider2D playerCollider;
+    private SpriteRenderer spriteRenderer;
     private Animator animator;
     private AudioSource audioSource;
 
     private bool isGrounded;
     private bool isKnockedBack;
+    private float lastGroundedTime;
 
     private float facingDirection = 1f;
 
@@ -32,6 +36,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
 
@@ -45,6 +50,10 @@ public class Player : MonoBehaviour
         if (moveInput != 0)
         {
             facingDirection = Mathf.Sign(moveInput);
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.flipX = facingDirection < 0f;
+            }
         }
 
         if (!isKnockedBack)
@@ -109,6 +118,11 @@ public class Player : MonoBehaviour
                 groundLayer
             );
 
+        if (isGrounded)
+        {
+            lastGroundedTime = Time.time;
+        }
+
         if (isKnockedBack &&
             isGrounded &&
             rb.linearVelocity.y <= 0f)
@@ -120,8 +134,13 @@ public class Player : MonoBehaviour
     private void SetAnimation(float moveInput)
     {
         string nextAnimation;
+        bool groundedForAnimation =
+            isGrounded ||
+            (Time.time - lastGroundedTime <= GroundedAnimationGracePeriod &&
+             rb.linearVelocity.y >= -0.1f &&
+             rb.linearVelocity.y <= 0.05f);
 
-        if (!isGrounded)
+        if (!groundedForAnimation)
         {
             if (rb.linearVelocity.y > 0.05f)
             {
