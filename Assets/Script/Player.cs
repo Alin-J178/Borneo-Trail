@@ -1,33 +1,47 @@
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Player : MonoBehaviour
 {
     public int coin;
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
+
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
 
+    public AudioClip jumpclip;
+
     private Rigidbody2D rb;
-    private bool isGrounded;
-    private float facingDirection = 1f;
-    private bool isKnockedBack;
-    
+    private Collider2D playerCollider;
     private Animator animator;
+    private AudioSource audioSource;
+
+    private bool isGrounded;
+    private bool isKnockedBack;
+
+    private float facingDirection = 1f;
 
     public int extraJumpsValue = 1;
     private int extraJumps;
+
+    private string currentAnimation = "";
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+
         extraJumps = extraJumpsValue;
     }
 
     void Update()
     {
         float moveInput = Input.GetAxis("Horizontal");
+
         if (moveInput != 0)
         {
             facingDirection = Mathf.Sign(moveInput);
@@ -35,71 +49,144 @@ public class Player : MonoBehaviour
 
         if (!isKnockedBack)
         {
-            rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(
+                moveInput * moveSpeed,
+                rb.linearVelocity.y
+            );
         }
 
-        // extra jumps logic
+        // Reset extra jumps when grounded
         if (isGrounded)
         {
             extraJumps = extraJumpsValue;
         }
 
+        // Jump using Space
         if (!isKnockedBack && Input.GetKeyDown(KeyCode.Space))
         {
             if (isGrounded)
             {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                rb.linearVelocity = new Vector2(
+                    rb.linearVelocity.x,
+                    jumpForce
+                );
+
+                isGrounded = false;
+                PlaySFX(jumpclip);
             }
             else if (extraJumps > 0)
             {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                rb.linearVelocity = new Vector2(
+                    rb.linearVelocity.x,
+                    jumpForce
+                );
+
                 extraJumps--;
+                PlaySFX(jumpclip);
             }
         }
 
         SetAnimation(moveInput);
     }
 
-    public void ApplyKnockback(float horizontalForce, float upwardSpeed)
+    void FixedUpdate()
     {
-        isKnockedBack = true;
-        rb.linearVelocity = new Vector2(
-            -facingDirection * horizontalForce,
-            Mathf.Max(rb.linearVelocity.y, upwardSpeed));
-    }
+        Vector2 groundCheckPosition = groundCheck != null
+            ? groundCheck.position
+            : transform.position;
 
-    private void FixedUpdate()
-    {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        if (isKnockedBack && isGrounded && rb.linearVelocity.y <= 0f)
+        if (playerCollider != null)
+        {
+            groundCheckPosition.y =
+                playerCollider.bounds.min.y + groundCheckRadius * 0.5f;
+        }
+
+        isGrounded =
+            rb.linearVelocity.y <= 0.01f &&
+            Physics2D.OverlapCircle(
+                groundCheckPosition,
+                groundCheckRadius,
+                groundLayer
+            );
+
+        if (isKnockedBack &&
+            isGrounded &&
+            rb.linearVelocity.y <= 0f)
         {
             isKnockedBack = false;
         }
     }
+
     private void SetAnimation(float moveInput)
     {
-        if (isGrounded)
+        string nextAnimation;
+
+        if (!isGrounded)
         {
-            if(moveInput == 0)
+            if (rb.linearVelocity.y > 0.05f)
             {
-                animator.Play("Player_Idle");
+                nextAnimation = "Player_Jump";
             }
             else
             {
-                animator.Play("Player_Run");
+                nextAnimation = "Player_Fall";
             }
+        }
+        else if (Mathf.Abs(moveInput) > 0.01f)
+        {
+            nextAnimation = "Player_Run";
         }
         else
         {
-            if (rb.linearVelocity.y > 0)
+            nextAnimation = "Player_Idle";
+        }
+
+        // Play only when changing animation
+        if (currentAnimation != nextAnimation)
+        {
+            animator.Play(nextAnimation);
+            currentAnimation = nextAnimation;
+        }
+    }
+
+    public void ApplyKnockback(
+        float horizontalForce,
+        float upwardSpeed)
+    {
+        isKnockedBack = true;
+
+        rb.linearVelocity = new Vector2(
+            -facingDirection * horizontalForce,
+            Mathf.Max(rb.linearVelocity.y, upwardSpeed)
+        );
+    }
+
+    private void PlaySFX(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (groundCheck != null)
+        {
+            Gizmos.color = Color.yellow;
+
+            Vector3 groundCheckPosition = groundCheck.position;
+            Collider2D playerCollider = GetComponent<Collider2D>();
+            if (playerCollider != null)
             {
-                animator.Play("Player_Jump");
-            }
-            else
-            {
-                animator.Play("Player_Fall");
+                groundCheckPosition.y =
+                    playerCollider.bounds.min.y + groundCheckRadius * 0.5f;
             }
 
+            Gizmos.DrawWireSphere(
+                groundCheckPosition,
+                groundCheckRadius
+            );
         }
     }
 }

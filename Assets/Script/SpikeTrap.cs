@@ -1,4 +1,3 @@
-
 using System.Collections;
 using UnityEngine;
 
@@ -8,6 +7,11 @@ public class SpikeTrap : MonoBehaviour
     public Animator animator;
     public AnimationClip riseClip;
     public AnimationClip retractClip;
+    
+
+    [Header("Damage")]
+    public Collider2D damageZone;
+    public SpikeDamageZone spikeDamage;
 
     [Header("Timing")]
     public float hiddenDelay = 2f;
@@ -15,6 +19,7 @@ public class SpikeTrap : MonoBehaviour
 
     private void Start()
     {
+        damageZone.enabled = false;
         StartCoroutine(SpikeCycle());
     }
 
@@ -22,17 +27,23 @@ public class SpikeTrap : MonoBehaviour
     {
         while (true)
         {
-            // Wait while the spikes are hidden
+            // Wait while hidden
+            damageZone.enabled = false;
             yield return new WaitForSeconds(hiddenDelay);
 
-            // Raise the spikes
+            // Raise spikes
             animator.Play(riseClip.name, 0, 0f);
             yield return new WaitForSeconds(riseClip.length);
 
-            // Keep the spikes raised
+            // Spikes are now dangerous
+            damageZone.enabled = true;
+            spikeDamage.CheckForDamage();
+
+            // Stay dangerous
             yield return new WaitForSeconds(dangerousDelay);
 
-            // Retract the spikes
+            // Retract spikes
+            damageZone.enabled = false;
             animator.Play(retractClip.name, 0, 0f);
             yield return new WaitForSeconds(retractClip.length);
         }
