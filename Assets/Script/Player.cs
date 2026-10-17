@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     private bool hasBeenGrounded;
     private float lastGroundedTime;
     private Vector2 groundVelocity;
+    private MovingPlatform groundPlatform;
 
     private float facingDirection = 1f;
 
@@ -61,10 +62,16 @@ public class Player : MonoBehaviour
 
         if (!isKnockedBack)
         {
-            rb.linearVelocity = new Vector2(
-                moveInput * moveSpeed,
-                rb.linearVelocity.y
-            );
+            Vector2 movementVelocity = rb.linearVelocity;
+            movementVelocity.x = moveInput * moveSpeed;
+
+            if (isGrounded && !isJumping && groundPlatform != null)
+            {
+                movementVelocity.x += groundVelocity.x;
+                movementVelocity.y = groundVelocity.y;
+            }
+
+            rb.linearVelocity = movementVelocity;
         }
 
         // Reset extra jumps when grounded
@@ -123,12 +130,14 @@ public class Player : MonoBehaviour
 
         isGrounded = false;
         groundVelocity = Vector2.zero;
+        groundPlatform = null;
         if (groundHit != null && groundHit != playerCollider)
         {
             MovingPlatform movingPlatform =
                 groundHit.GetComponentInParent<MovingPlatform>();
             if (movingPlatform != null)
             {
+                groundPlatform = movingPlatform;
                 groundVelocity = movingPlatform.Velocity;
             }
             else
