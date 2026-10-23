@@ -59,6 +59,11 @@ public class Health : MonoBehaviour
             return;
         }
 
+        if (player != null)
+        {
+            player.PlayHurtSFX();
+        }
+
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, startingHealth);
 
         if (currentHealth > 0)
@@ -75,6 +80,7 @@ public class Health : MonoBehaviour
         }
         else
         {
+            Checkpoint.PrepareRespawnAtCheckpoint();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

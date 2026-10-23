@@ -9,6 +9,7 @@ public class KillZone : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            Checkpoint.PrepareRespawnAtCheckpoint();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

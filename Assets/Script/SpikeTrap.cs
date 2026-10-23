@@ -16,20 +16,38 @@ public class SpikeTrap : MonoBehaviour
     [Header("Timing")]
     public float hiddenDelay = 2f;
     public float dangerousDelay = 1f;
+    [Min(0f)] public float initialDelayVariation = 2f;
+    [Min(0f)] public float hiddenDelayVariation = 0.5f;
+    [Min(0f)] public float dangerousDelayVariation = 0.25f;
+
+    private float instanceHiddenDelay;
+    private float instanceDangerousDelay;
 
     private void Start()
     {
         damageZone.enabled = false;
+
+        instanceHiddenDelay = Random.Range(
+            Mathf.Max(0f, hiddenDelay - hiddenDelayVariation),
+            hiddenDelay + hiddenDelayVariation
+        );
+        instanceDangerousDelay = Random.Range(
+            Mathf.Max(0f, dangerousDelay - dangerousDelayVariation),
+            dangerousDelay + dangerousDelayVariation
+        );
+
         StartCoroutine(SpikeCycle());
     }
 
     private IEnumerator SpikeCycle()
     {
+        yield return new WaitForSeconds(Random.Range(0f, initialDelayVariation));
+
         while (true)
         {
             // Wait while hidden
             damageZone.enabled = false;
-            yield return new WaitForSeconds(hiddenDelay);
+            yield return new WaitForSeconds(instanceHiddenDelay);
 
             // Raise spikes
             animator.Play(riseClip.name, 0, 0f);
@@ -40,7 +58,7 @@ public class SpikeTrap : MonoBehaviour
             spikeDamage.CheckForDamage();
 
             // Stay dangerous
-            yield return new WaitForSeconds(dangerousDelay);
+            yield return new WaitForSeconds(instanceDangerousDelay);
 
             // Retract spikes
             damageZone.enabled = false;

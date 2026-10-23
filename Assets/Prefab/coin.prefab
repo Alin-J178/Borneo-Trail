@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a2ae465f4c1e32429a822ad3876cd0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::coin
+  collectSound: {fileID: 8300000, guid: ff26db9d27caf214298a5c45546e1a78, type: 3}
 --- !u!61 &8947271377778507452
 BoxCollider2D:
   m_ObjectHideFlags: 0
